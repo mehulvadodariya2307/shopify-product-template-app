@@ -201,7 +201,7 @@ return [
     |
     */
 
-    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_products,write_products'),
+    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_products,write_products,read_draft_orders,read_orders'),
 
     /*
     |--------------------------------------------------------------------------
@@ -384,6 +384,10 @@ return [
         [
             'topic' => env('SHOPIFY_WEBHOOK_1_TOPIC', 'APP_UNINSTALLED'),
             'address' => env('SHOPIFY_WEBHOOK_1_ADDRESS', env('APP_URL').'/webhook/app-uninstalled')
+        ],
+        [
+            'topic' => env('SHOPIFY_WEBHOOK_2_TOPIC', 'ORDERS_CREATE'),
+            'address' => env('SHOPIFY_WEBHOOK_2_ADDRESS', env('APP_URL').'/webhook/orders-create')
         ],
         /*
             [
